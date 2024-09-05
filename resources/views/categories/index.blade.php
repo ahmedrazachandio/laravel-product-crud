@@ -40,7 +40,7 @@
                             @csrf
                             @method('DELETE')
                 
-                            <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Delete</button>
+                            <button type="submit" onclick="return confirm('Are you sure you want to delete this product!')" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Delete</button>
                         </form>
                     </td>
                 </tr>

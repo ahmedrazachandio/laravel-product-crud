@@ -54,6 +54,7 @@ class ProductController extends Controller
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
+            $input['thumbnail_image'] = "$profileImage";
         }
 
         Product::create($input);
@@ -113,6 +114,7 @@ class ProductController extends Controller
     public function destroy(Product $product): RedirectResponse
     {
         $product->delete();
+        
 
         return redirect()->route('products.index')
             ->with('success', 'Product deleted successfully');

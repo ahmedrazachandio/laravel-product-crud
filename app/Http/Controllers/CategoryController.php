@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
@@ -89,6 +90,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        Product::where('category_id',$category->id)->delete();
         $category->delete();
 
         return redirect()->route('categories.index')
